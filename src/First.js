@@ -34,7 +34,7 @@ function First() {
     return (
         <section className='First'>
             <form onSubmit={getSearch} className='search-form'>
-                <input type='text' className='search-bar' value ={search} onChange={updateSearch} />
+                <input type='text' className='search-bar' value ={search} onChange={updateSearch} placeholder='Enter an Ingredient'  />
                 <button type = 'submit' className='search-button'>Search</button>
             </form>
             {Recipes.map(Recipes =>(
