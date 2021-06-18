@@ -1,0 +1,360 @@
+@import "_mix.scss";
+
+#root {
+  @include Flex(column, wrap, center, center);
+  height: 100%;
+  width: 100%;
+  main {
+    @include Flex(column, wrap, center, center);
+    position: relative;
+    height: 100%;
+    width: 100%;
+    .SVG {
+      @include Flex(column, wrap, center, center);
+      height: 100%;
+      width: 100%;
+      svg {
+        @include Flex(column, wrap, center, center);
+        height: 60%;
+        width: 30%;
+        border-radius: 15%;
+        border: 5px solid rgba(255, 0, 0, 0.268);
+        animation: borderup 2s linear forwards;
+        @media only screen and(max-width:600px) {
+          height: 35%;
+          width: 50%;
+        }
+
+        text {
+          transform: translate(0%, 0%);
+          font-size: 11em;
+          fill: rgb(82, 2, 2);
+
+          :nth-child(1) {
+            animation: textAnimation 2s linear 1s forwards;
+          }
+          :nth-child(2) {
+            animation: textAnimation 2s linear 1.5s forwards;
+          }
+          :nth-child(3) {
+            animation: textAnimation 2s linear 2s forwards;
+          }
+        }
+        #Pan {
+          transform: scale(1, 1.3);
+          stroke: rgba(255, 0, 0, 0.268);
+          transition: all 0.5s;
+        }
+        #Chicken {
+          transform: translate(0%, 10%);
+          stroke: rgba(255, 0, 0, 0.268);
+          transform-origin: center center;
+          animation: foodDrop1 1s linear infinite;
+          transition: all 0.5s;
+        }
+        #Bean {
+          transform: translate(0%, 10%);
+          stroke: rgba(255, 0, 0, 0.268);
+          animation: foodDrop2 1s linear infinite;
+          transition: all 0.5s;
+        }
+        #Potato {
+          transform: translate(0%, 10%);
+          stroke: rgba(255, 0, 0, 0.268);
+          animation: foodDrop3 1s linear infinite;
+          transition: all 0.5s;
+        }
+      }
+    }
+    .SearchBar {
+      @include Flex(column, wrap, flex-start, center);
+      height: 100%;
+      width: 100%;
+      background-color: rgb(109, 108, 108);
+      form {
+        @include Flex(row, nowrap, center, center);
+        background-color: black;
+        height: 7.5%;
+        width: 100%;
+        .Art {
+          position: relative;
+          left: -15%;
+          height: 70%;
+          width: 5%;
+          align-self: center;
+          transition: background-color 2s;
+          border: 0.5px solid red;
+          border-radius: 1em;
+          &:hover {
+            background-color: rgb(43, 42, 42);
+          }
+          @media (max-width: 600px) {
+            left: -10%;
+            width: 12%;
+          }
+        }
+        input {
+          position: relative;
+          left: -2.5%;
+          align-self: center;
+          width: 50%;
+          height: 50%;
+          &::placeholder {
+            text-align: center;
+          }
+        }
+      }
+      .DropDownMenuOff {
+        position: relative;
+        transform: translate(-50%, 0%);
+        opacity: 0;
+        display: inline-block;
+        left: 50%;
+        background-color: black;
+        width: 25%;
+      }
+      .DropDownMenuOn {
+        position: absolute;
+        color: white;
+        z-index: 2;
+        opacity: 1;
+        top: 9%;
+        left: 50%;
+        text-align: center;
+        transform: translate(-50%, -50%);
+        background-color: black;
+        display: inline-block;
+        width: 50%;
+        height: max-content;
+        .RecipeTab {
+          width: 100%;
+          height: 1.5em;
+          &:hover {
+            color: black;
+            background-color: white;
+          }
+        }
+      }
+      .Board {
+        @include Flex(column, wrap, flex-start, center);
+        position: relative;
+        background-color: rgb(165, 11, 11);
+        height: 92.5%;
+        width: 100%;
+        .RecipeName {
+          @include Flex(column, wrap, center, center);
+          background-color: rgb(165, 11, 11);
+          color: white;
+          height: 20%;
+          width: 100%;
+          div {
+            font-size: 3em;
+          }
+        }
+        .Ingredients {
+          height: 10%;
+          background-color: rgb(165, 11, 11);
+          color: white;
+          @include Flex(column, wrap, center, center);
+          border-bottom-left-radius: 5%;
+          border-bottom-right-radius: 5%;
+          .Required {
+            color: white;
+            text-align: center;
+            align-self: center;
+            height: 40%;
+            width: 25%;
+          }
+          .Holder {
+            height: 60%;
+            width: 100%;
+            color: white;
+            @include Flex(row, wrap, center, center);
+            .Ingredient {
+              color: white;
+              border-radius: 1em;
+              border: 1px solid white;
+              min-width: 6em;
+              height: 50%;
+              max-width: 7em;
+              align-self: stretch;
+              text-align: center;
+            }
+          }
+        }
+        .Description {
+          @include Flex(column, wrap, space-between, center);
+          height: 10%;
+          width: 100%;
+          align-self: center;
+          text-align: center;
+          background-color: white;
+          .Title {
+            width: 50%;
+            height: 30%;
+          }
+          .Info {
+            height: 60%;
+          }
+        }
+        .Instruction {
+          @include Flex(column, wrap, center, center);
+          background-color: white;
+          height: 60%;
+          .Ing_Holder {
+            @include Flex(column, wrap, center, center);
+            border: 0.25em solid rgb(165, 11, 11);
+            height: 90%;
+            width: 75%;
+            h1 {
+              height: 20%;
+              align-self: center;
+            }
+            div {
+              min-height: 15%;
+              align-self: center;
+            }
+          }
+        }
+      }
+      .Home {
+        @include Flex(column, wrap, space-between, center);
+        height: 92.5%;
+        background-color: rgb(165, 11, 11);
+        .Recent {
+          @include Flex(column, wrap, space-between, center);
+          align-self: flex-start;
+          height: 10%;
+          width: 100%;
+          margin-top: 2em;
+          margin-bottom: 2em;
+          background-color: rgb(72, 71, 71);
+          h3 {
+            font-size: 1.5em;
+            height: 20%;
+            width: 100%;
+            text-align: center;
+          }
+          .New {
+            @include Flex(row, wrap, center, center);
+            height: 70%;
+            div {
+              font-size: 0.475em;
+              margin-left: 0.1em;
+              margin-right: 0.5em;
+              height: 50%;
+              width: 20%;
+              text-align: center;
+              border: 0.2em solid rgb(43, 43, 43);
+              &:nth-child(1) {
+                border-radius: 1em;
+                background-color: white;
+              }
+              &:nth-child(2) {
+                border-radius: 1em;
+                background-color: white;
+              }
+              &:nth-child(3) {
+                border-radius: 1em;
+                background-color: white;
+              }
+            }
+          }
+        }
+        .number {
+          @include Flex(column, wrap, space-evenly, center);
+          width: 60%;
+          height: 50%;
+          align-self: center;
+          font-size: 100px;
+          color: white;
+          h3 {
+            align-self: center;
+            font-size: 0.25em;
+            height: 10%;
+            width: 100%;
+            text-align: center;
+          }
+          .NumHolder {
+            @include Flex(row, wrap, center, center);
+            height: 90%;
+            width: 100%;
+            div {
+              border: 1px solid white;
+              @include Flex(column, wrap, center, center);
+              height: 2em;
+              width: 2em;
+              font-size: 0.75em;
+              align-self: center;
+              div {
+                border: none;
+                width: 50%;
+                height: 50%;
+              }
+            }
+          }
+        }
+        .InfoBoard {
+          text-align: center;
+          align-self: center;
+          background-color: rgb(32, 32, 32);
+          height: 20%;
+          width: 80%;
+          p {
+            position: relative;
+            top: 50%;
+            transform: translate(0%, -50%);
+            color: white;
+            font-size: 1.1em;
+            font-weight: bolder;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes borderup {
+  0% {
+    opacity: 0.25;
+    box-shadow: 0em 0em 0em 0em rgb(226, 65, 65);
+    border: 5px solid rgba(165, 1, 1, 0.707);
+  }
+  25% {
+    opacity: 0.25;
+    box-shadow: 0em 0em 0em 0em rgb(226, 65, 65);
+    border: 5px solid rgba(165, 1, 1, 0.707);
+  }
+  50% {
+    opacity: 0.5;
+    box-shadow: 0em 0em 0em 0em rgb(226, 65, 65);
+    border: 5px solid rgba(165, 1, 1, 0.707);
+  }
+  75% {
+    opacity: 0.75;
+    box-shadow: 0em 0em 0em 0em rgb(226, 65, 65);
+    border: 5px solid rgba(165, 1, 1, 0.707);
+  }
+  100% {
+    opacity: 1;
+    box-shadow: 0em 0em 5em 0.25em rgb(226, 65, 65);
+    border: 5px solid rgb(255, 0, 0);
+  }
+}
+@keyframes textAnimation {
+  0% {
+    fill: rgb(82, 2, 2);
+  }
+  25% {
+    fill: rgb(82, 2, 2);
+  }
+  50% {
+    fill: rgb(82, 2, 2);
+  }
+  75% {
+    fill: rgb(82, 2, 2);
+  }
+  100% {
+    fill: red;
+  }
+}
