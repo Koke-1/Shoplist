@@ -9,6 +9,7 @@ export default function SearchBar() {
     const [DropMenu, setDropMenu] = useState(false)
 
     useEffect(() => {
+      const input = document.querySelector("input")
        if (Bar[0] !== undefined) {
            setDropMenu(true)
        } else {
@@ -18,8 +19,11 @@ export default function SearchBar() {
 
     const test = e => {
     const ingredient = e.target.value
-    const foundRecipes = Recipes.filter((ingredients) =>ingredients.Ingredients.includes(ingredient))
+    const foundRecipes = Recipes.filter((info) => info.Ingredients.includes(ingredient) || info.Ingredients.toString().toLowerCase().includes(ingredient))
     setBar(foundRecipes)
+    if (ingredient === "") {
+         setBar([])
+       }
   };
   const information = (arr) =>{
     const input = document.querySelector("input")
@@ -29,8 +33,8 @@ export default function SearchBar() {
   }
     return (
         <section className="SearchBar" >
-            <form onSubmit={(e)=>e.preventDefault() } >
-              <svg onClick={()=> console.log("Test")} className="Art" stroke="red" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 1500 900" preserveAspectRatio="xMidYMid slice" >
+          <div className="Bar" >
+            <svg onClick={()=> console.log("Test")} className="Art" stroke="red" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 1500 900" preserveAspectRatio="xMidYMid slice" >
           <path id="Pan"
             fill="none" strokeWidth="20" stroke="red"
         d="M 966.08,473.84
@@ -88,9 +92,23 @@ export default function SearchBar() {
              714.00,160.50 654.00,115.50 654.00,115.50 Z
            M 837.00,265.50" />
         </svg>
+            <form onSubmit={(e)=>e.preventDefault() } >
+              
              <input placeholder="Enter Ingredient"  onInput={test}></input>
+             <div className="OptionsHolder" >
+             {Bar.map((info,index,array)=>{
+                    const {Recipe} = info
+                    return (
+                       <option key={index} onClick={()=>information(array[index])} className="RecipeTab" >{Recipe}</option> 
+                    )
+                })
+                   
+                } 
+                </div>
             </form>
-            <article className={DropMenu ? "DropDownMenuOn":"DropDownMenuOff" } >
+          </div>
+            
+            {/* <article className={DropMenu ? "DropDownMenuOn":"DropDownMenuOff" } >
                 {Bar.map((info,index,array)=>{
                     const {Recipe} = info
                     return (
@@ -99,7 +117,7 @@ export default function SearchBar() {
                 })
                     
                 }
-            </article>
+            </article> */}
             {Info[0] !== undefined ? <RecipeDashBoard info={Info}/> : <HomePage/>}
             
             

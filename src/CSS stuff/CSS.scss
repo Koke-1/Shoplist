@@ -71,39 +71,62 @@
       height: 100%;
       width: 100%;
       background-color: rgb(109, 108, 108);
-      form {
+      .Art {
+        position: relative;
+        left: 10%;
+        height: 70%;
+        width: 5%;
+        align-self: center;
+        transition: background-color 2s;
+        border: 0.5px solid red;
+        border-radius: 1em;
+        &:hover {
+          background-color: rgb(43, 42, 42);
+        }
+        @media (max-width: 600px) {
+          left: 10%;
+          width: 12%;
+        }
+      }
+      .Bar {
         @include Flex(row, nowrap, center, center);
         background-color: black;
         height: 7.5%;
         width: 100%;
-        .Art {
-          position: relative;
-          left: -15%;
-          height: 70%;
-          width: 5%;
-          align-self: center;
-          transition: background-color 2s;
-          border: 0.5px solid red;
-          border-radius: 1em;
-          &:hover {
-            background-color: rgb(43, 42, 42);
+        form {
+          @include Flex(column, nowrap, center, center);
+          background-color: black;
+          height: 100%;
+          width: 100%;
+
+          input {
+            position: relative;
+            left: -2.5%;
+            align-self: center;
+            width: 50%;
+            height: 50%;
+            &::placeholder {
+              text-align: center;
+              align-self: center;
+            }
           }
-          @media (max-width: 600px) {
-            left: -10%;
-            width: 12%;
-          }
-        }
-        input {
-          position: relative;
-          left: -2.5%;
-          align-self: center;
-          width: 50%;
-          height: 50%;
-          &::placeholder {
-            text-align: center;
+          .OptionsHolder {
+            z-index: 1;
+            width: 25%;
+            left: 37.5%;
+            top: 6%;
+            position: absolute;
+            box-sizing: content-box;
+            option {
+              position: relative;
+              background-color: black;
+              color: white;
+              text-align: center;
+            }
           }
         }
       }
+
       .DropDownMenuOff {
         position: relative;
         transform: translate(-50%, 0%);

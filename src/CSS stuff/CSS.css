@@ -185,7 +185,32 @@ body {
   background-color: #6d6c6c;
 }
 
-#root main .SearchBar form {
+#root main .SearchBar .Art {
+  position: relative;
+  left: 10%;
+  height: 70%;
+  width: 5%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -webkit-transition: background-color 2s;
+  transition: background-color 2s;
+  border: 0.5px solid red;
+  border-radius: 1em;
+}
+
+#root main .SearchBar .Art:hover {
+  background-color: #2b2a2a;
+}
+
+@media (max-width: 600px) {
+  #root main .SearchBar .Art {
+    left: 10%;
+    width: 12%;
+  }
+}
+
+#root main .SearchBar .Bar {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -203,32 +228,25 @@ body {
   width: 100%;
 }
 
-#root main .SearchBar form .Art {
-  position: relative;
-  left: -15%;
-  height: 70%;
-  width: 5%;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-  -webkit-transition: background-color 2s;
-  transition: background-color 2s;
-  border: 0.5px solid red;
-  border-radius: 1em;
+#root main .SearchBar .Bar form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  background-color: black;
+  height: 100%;
+  width: 100%;
 }
 
-#root main .SearchBar form .Art:hover {
-  background-color: #2b2a2a;
-}
-
-@media (max-width: 600px) {
-  #root main .SearchBar form .Art {
-    left: -10%;
-    width: 12%;
-  }
-}
-
-#root main .SearchBar form input {
+#root main .SearchBar .Bar form input {
   position: relative;
   left: -2.5%;
   -ms-flex-item-align: center;
@@ -238,19 +256,46 @@ body {
   height: 50%;
 }
 
-#root main .SearchBar form input::-webkit-input-placeholder {
+#root main .SearchBar .Bar form input::-webkit-input-placeholder {
   text-align: center;
+  align-self: center;
 }
 
-#root main .SearchBar form input:-ms-input-placeholder {
+#root main .SearchBar .Bar form input:-ms-input-placeholder {
   text-align: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 
-#root main .SearchBar form input::-ms-input-placeholder {
+#root main .SearchBar .Bar form input::-ms-input-placeholder {
   text-align: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 
-#root main .SearchBar form input::placeholder {
+#root main .SearchBar .Bar form input::placeholder {
+  text-align: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+#root main .SearchBar .Bar form .OptionsHolder {
+  z-index: 1;
+  width: 25%;
+  left: 37.5%;
+  top: 6%;
+  position: absolute;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+}
+
+#root main .SearchBar .Bar form .OptionsHolder option {
+  position: relative;
+  background-color: black;
+  color: white;
   text-align: center;
 }
 
