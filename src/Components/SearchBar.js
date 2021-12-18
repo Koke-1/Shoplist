@@ -94,7 +94,7 @@ export default function SearchBar() {
         </svg>
             <form onSubmit={(e)=>e.preventDefault() } >
               
-             <input placeholder="Enter Ingredient"  onInput={test}></input>
+             <input placeholder="Enter Ingredient in Lowercase"  onInput={test}></input>
              <div className="OptionsHolder" >
              {Bar.map((info,index,array)=>{
                     const {Recipe} = info
